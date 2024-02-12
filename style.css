@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300&display=swap');
+*
+{
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+html
+{
+    background-color: rgb(10,10,10);
+    color: white;
+}
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.hide
+{
+    position: absolute;
+    text-align: center;
+    background-color: rgb(10,10,10);
+    z-index: 2;
+    width: 50vh;
+    height: 50vh;
+    opacity: 1;
+}
+.intro_text1
+{
+    display: inline-block;
+    font-size: 2vh;
+    opacity: 1;
+    z-index: 1;
+    margin: 0px;
+    animation: text1-animation 2.5s;
+}
+.intro_text2
+{
+    display: inline-block;
+    font-size: 2vh;
+    opacity: 1;
+    margin: 0px;
+    z-index: 1;
+    animation: text1-animation 2.5s;
+    animation-delay: 2.5s;
+}
+#kozel_logo
+{
+    display: none;
+}
+@keyframes text1-animation {
+	0% {opacity: 0;
+        z-index: -1;
+        visibility: hidden;}
+	30% {opacity: 1;
+        z-index: 100;
+        visibility: visible;}
+	70% {opacity: 1;
+        z-index: 100;
+        visibility: visible;}
+	100% {opacity: 0;
+        z-index: -1;
+        visibility: hidden;}
+}
