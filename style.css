@@ -7,8 +7,8 @@
 }
 html
 {
-    background-color: rgb(10,10,10);
     color: white;
+    overflow: hidden;
 }
 body
 {
@@ -16,8 +16,22 @@ body
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-image: url(field.jpg);
 }
-.hide
+#background
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    background-color: rgb(10,10,10);
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    animation: second-animation 1s;
+    animation-delay: 5s;
+}
+#hide
 {
     position: absolute;
     text-align: center;
@@ -26,41 +40,184 @@ body
     width: 50vh;
     height: 50vh;
     opacity: 1;
+    animation: second-animation 1s;
+    animation-delay: 5s;
 }
 .intro_text1
 {
     display: inline-block;
     font-size: 2vh;
     opacity: 1;
-    z-index: 1;
-    margin: 0px;
-    animation: text1-animation 2.5s;
+    z-index: -1;
+    animation: first-animation 2.5s;
 }
 .intro_text2
 {
     display: inline-block;
     font-size: 2vh;
     opacity: 1;
-    margin: 0px;
-    z-index: 1;
-    animation: text1-animation 2.5s;
+    z-index: -1;
+    animation: first-animation 2.5s;
     animation-delay: 2.5s;
 }
 #kozel_logo
 {
+    top: 2vh;
+    position: absolute;
+    width: 22vw;
+    height: 20vw;
+    opacity: 1;
+    z-index: 3;
     display: none;
+    animation: logo-animation 3.5s linear,kozel-logo 3.5s linear infinite;
+    transform: rotate(0deg);
+    animation-delay: 0s;
 }
-@keyframes text1-animation {
+#procentygif
+{
+    display: none;
+    z-index: 3;
+    opacity: 1;
+    width: 15vw;
+    height: 20vw;
+    left: 10vw;
+    top: 20vh;
+    position: absolute;
+    animation: logo-animation 3.5s linear, rotate-animation 0.9s infinite;
+    mix-blend-mode: color-burn ;
+}
+#krangif
+{
+    display: none;
+    z-index: 3;
+    opacity: 1;
+    width: 15vw;
+    height: 20vw;
+    right: 10vw;
+    top: 20vh;
+    position: absolute;
+    animation: logo-animation 3.5s linear, rotate2-animation 0.9s infinite;
+    mix-blend-mode: color-burn ;
+}
+#tymongif
+{
+    left: -15vw;
+    bottom: 0vh;
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 10vw;
+    height: 15vw;
+    animation: tymon-animation 7s infinite linear;
+}
+#buttonKoz
+{
+    bottom: 40vh;
+    background-color: whitesmoke;
+    position: absolute;
+    font-size: 2vh;
+    cursor: pointer;
+    padding: 15px,20px;
+    box-shadow: 2px 2px 0 0 gray, 4px 4px 0 0 black;
+    border-radius: 3px;
+    transition-duration: 200ms;
+}
+@keyframes first-animation {
 	0% {opacity: 0;
-        z-index: -1;
-        visibility: hidden;}
+        z-index: -1;}
 	30% {opacity: 1;
-        z-index: 100;
-        visibility: visible;}
+        z-index: 100;}
 	70% {opacity: 1;
-        z-index: 100;
-        visibility: visible;}
+        z-index: 100;}
 	100% {opacity: 0;
-        z-index: -1;
-        visibility: hidden;}
+        z-index: -1;}
 }
+@keyframes second-animation {
+    0% {
+        background-color: rgb(10,10,10);
+        opacity: 1;
+    }
+    100% {
+        background-color: white;
+        opacity: 0;
+    }
+}
+@keyframes logo-animation {
+    0% {
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 1;
+    }
+}
+@keyframes kozel-logo
+{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes tymon-animation {
+    0% {
+        left: -15vw;
+        bottom: 0vh;
+    }
+    100%
+    {
+        left: 100vw;
+    }
+}
+@keyframes rotate-animation{
+    0%{
+        transform: rotate(30deg);
+    }
+    49%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(-30deg);
+    }
+    100%{
+        transform: rotate(-30deg);
+    }
+}
+@keyframes rotate2-animation{
+    0%{
+        transform: rotate(-30deg);
+    }
+    49%{
+        transform: rotate(-30deg);
+    }
+    50%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(30deg);
+    }
+}
+@media screen and (max-width: 600px) and (min-height: 650px){
+    #kozel_logo {
+        width: 46vw;
+        height: 45vw;
+        top: 5vh;
+    }
+    #krangif {
+        width: 29vw;
+        height: 32vw;
+        right: 7vw;
+        top: 35vh;
+    }
+    #procentygif {
+        width: 29vw;
+        height: 32vw;
+        left: 7vw;
+        top: 35vh;
+    }
+    #tymongif{
+        width: 35vw;
+        height: 42vw;
+    }
+  }
