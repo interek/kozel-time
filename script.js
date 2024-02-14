@@ -1,3 +1,4 @@
+
 let background = document.getElementById("background");
 let hide = document.getElementById("hide");
 let text1 = document.querySelector(".intro_text1");
@@ -9,11 +10,13 @@ let krangif = document.getElementById("krangif");
 let currentTime = new Date();
 let hours = document.getElementById("hours");
 let minutes = document.getElementById("minutes");
+let przycisk = document.getElementById("buttonKoz");
 hours.innerHTML = currentTime.getHours();
 minutes.innerHTML = currentTime.getMinutes();
 
 function playSound(){
     let audio = new Audio("piwotymona.mp3");
+    przycisk.style.display = "none";
     audio.play();
 }
 setInterval(function()
